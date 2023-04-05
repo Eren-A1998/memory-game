@@ -37,7 +37,7 @@ const toggleFlip = (idx) => {
     }
 };
 const flip = (card, index) => {
-    Prepare.flipAudio.volume = .2;
+    Prepare.flipAudio.volume = 0.2;
     Prepare.flipAudio.play();
     if (card) {
         card.flip = card.flip === "" ? "flip" : "";
@@ -79,19 +79,20 @@ const selectCard = (card, index) => {
                 flip(Prepare.selectedCard_2, Prepare.selectedIndex_2);
                 Prepare.selectedCard_1 = null;
                 Prepare.selectedCard_2 = null;
-            }, 1000);
+            }, 500);
             // Prepare.fullTrack.play()
         }
     }
 };
 const changeProgress = () => {
-    const progress = Prepare.cards.filter(card => !card.clickable).length / CardsNumber * 100;
-    const progressElement = document.getElementById('progress');
+    const progress = (Prepare.cards.filter((card) => !card.clickable).length / CardsNumber) *
+        100;
+    const progressElement = document.getElementById("progress");
     progressElement.style.width = `${progress}%`;
     progressElement.innerText = `${progress}%`;
 };
 const checkFinish = () => {
-    if (Prepare.cards.filter(card => !card.clickable).length === CardsNumber) {
+    if (Prepare.cards.filter((card) => !card.clickable).length === CardsNumber) {
         /** End of Game */
         stopAudio(Prepare.fullTrack);
         stopAudio(Prepare.failAudio);

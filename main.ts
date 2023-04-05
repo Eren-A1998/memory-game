@@ -46,7 +46,7 @@ const toggleFlip = (idx) => {
 };
 
 const flip = (card: ICard, index: number) => {
-  Prepare.flipAudio.volume=.2;
+  Prepare.flipAudio.volume = 0.2;
   Prepare.flipAudio.play();
   if (card) {
     card.flip = card.flip === "" ? "flip" : "";
@@ -77,40 +77,41 @@ const selectCard = (card: ICard, index: number) => {
       // }, 2000);
       changeProgress();
       checkFinish();
-    }
-    else {
-        // stopAudio(Prepare.fullTrack)
-        setTimeout(() => {
-            // stopAudio(Prepare.failAudio);
-            // stopAudio(Prepare.goodAudio);
-            Prepare.failAudio.play();
-            flip(Prepare.selectedCard_1, Prepare.selectedIndex_1);
-            flip(Prepare.selectedCard_2, Prepare.selectedIndex_2);
-            Prepare.selectedCard_1 = null;
-            Prepare.selectedCard_2 = null;
-        }, 1000);
-        // Prepare.fullTrack.play()
-        
+    } else {
+      // stopAudio(Prepare.fullTrack)
+      setTimeout(() => {
+        // stopAudio(Prepare.failAudio);
+        // stopAudio(Prepare.goodAudio);
+        Prepare.failAudio.play();
+
+        flip(Prepare.selectedCard_1, Prepare.selectedIndex_1);
+        flip(Prepare.selectedCard_2, Prepare.selectedIndex_2);
+        Prepare.selectedCard_1 = null;
+        Prepare.selectedCard_2 = null;
+      }, 500);
+      // Prepare.fullTrack.play()
     }
   }
 };
 
 const changeProgress = () => {
-  const progress = Prepare.cards.filter(card => !card.clickable).length / CardsNumber * 100;
-  const progressElement = document.getElementById('progress');
+  const progress =
+    (Prepare.cards.filter((card) => !card.clickable).length / CardsNumber) *
+    100;
+  const progressElement = document.getElementById("progress");
   progressElement.style.width = `${progress}%`;
   progressElement.innerText = `${progress}%`;
-}
+};
 
 const checkFinish = () => {
-  if (Prepare.cards.filter(card => !card.clickable).length === CardsNumber) {
-      /** End of Game */
-      stopAudio(Prepare.fullTrack);
-      stopAudio(Prepare.failAudio);
-      stopAudio(Prepare.goodAudio);
-      Prepare.gameOverAudio.play();
+  if (Prepare.cards.filter((card) => !card.clickable).length === CardsNumber) {
+    /** End of Game */
+    stopAudio(Prepare.fullTrack);
+    stopAudio(Prepare.failAudio);
+    stopAudio(Prepare.goodAudio);
+    Prepare.gameOverAudio.play();
   }
-}
+};
 
 const stopAudio = (audio: HTMLAudioElement) => {
   if (audio && audio.played) {
