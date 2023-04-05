@@ -135,5 +135,4 @@ Prepare.cards.forEach((item, index) => {
     `;
 });
 document.getElementById("cards").innerHTML = CardsHtmlContent;
-export {};
 //#endregion
