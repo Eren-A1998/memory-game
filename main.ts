@@ -69,16 +69,16 @@ const selectCard = (card: ICard, index: number) => {
       Prepare.selectedCard_2 = null;
       // stopAudio(Prepare.failAudio);
       // stopAudio(Prepare.goodAudio);
-      stopAudio(Prepare.fullTrack)
+      // stopAudio(Prepare.fullTrack)
       Prepare.goodAudio.play();
-      setTimeout(() => {
-        Prepare.fullTrack.play()
-      }, 2000);
+      // setTimeout(() => {
+      //   Prepare.fullTrack.play()
+      // }, 2000);
       // changeProgress();
       // checkFinish();
     }
     else {
-        stopAudio(Prepare.fullTrack)
+        // stopAudio(Prepare.fullTrack)
         setTimeout(() => {
             // stopAudio(Prepare.failAudio);
             // stopAudio(Prepare.goodAudio);
@@ -88,7 +88,7 @@ const selectCard = (card: ICard, index: number) => {
             Prepare.selectedCard_1 = null;
             Prepare.selectedCard_2 = null;
         }, 1000);
-        Prepare.fullTrack.play()
+        // Prepare.fullTrack.play()
         
     }
   }
