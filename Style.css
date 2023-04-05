@@ -27,8 +27,11 @@ html {
 
 
 .card-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
     height: 120px;
-    font-size: 85px;
     position: absolute;
 }
 
