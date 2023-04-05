@@ -1,6 +1,7 @@
 body {
     background: url(./assets/brain.jpg);
-    background-size: 30% auto;
+    background-repeat: no-repeat;
+    background-size:cover;
     background-position: center;
     color: white;
     height: 100vh;
@@ -43,6 +44,7 @@ html {
     align-items: center;
     font-size: 85px;
     color: white;
+    cursor: pointer;
 }
 
 .card-flip {
@@ -56,7 +58,7 @@ html {
 .card-flip, .front, .back {
     width: 100%;
     height: 130px;
-    border: red 1px dashed;
+    /* border: red 1px dashed; */
 }
 
 .flip {

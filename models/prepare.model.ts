@@ -12,4 +12,5 @@ export interface IPrepare {
     goodAudio?: HTMLAudioElement;
     failAudio?: HTMLAudioElement;
     gameOverAudio?: HTMLAudioElement;
+
 }
