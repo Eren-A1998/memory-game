@@ -37,6 +37,7 @@ const toggleFlip = (idx) => {
     }
 };
 const flip = (card, index) => {
+    Prepare.flipAudio.volume = .2;
     Prepare.flipAudio.play();
     if (card) {
         card.flip = card.flip === "" ? "flip" : "";
@@ -65,8 +66,8 @@ const selectCard = (card, index) => {
             // setTimeout(() => {
             //   Prepare.fullTrack.play()
             // }, 2000);
-            // changeProgress();
-            // checkFinish();
+            changeProgress();
+            checkFinish();
         }
         else {
             // stopAudio(Prepare.fullTrack)
@@ -81,6 +82,21 @@ const selectCard = (card, index) => {
             }, 1000);
             // Prepare.fullTrack.play()
         }
+    }
+};
+const changeProgress = () => {
+    const progress = Prepare.cards.filter(card => !card.clickable).length / CardsNumber * 100;
+    const progressElement = document.getElementById('progress');
+    progressElement.style.width = `${progress}%`;
+    progressElement.innerText = `${progress}%`;
+};
+const checkFinish = () => {
+    if (Prepare.cards.filter(card => !card.clickable).length === CardsNumber) {
+        /** End of Game */
+        stopAudio(Prepare.fullTrack);
+        stopAudio(Prepare.failAudio);
+        stopAudio(Prepare.goodAudio);
+        Prepare.gameOverAudio.play();
     }
 };
 const stopAudio = (audio) => {
