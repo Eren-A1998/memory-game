@@ -46,6 +46,7 @@ const toggleFlip = (idx) => {
 };
 
 const flip = (card: ICard, index: number) => {
+  Prepare.flipAudio.volume=.2;
   Prepare.flipAudio.play();
   if (card) {
     card.flip = card.flip === "" ? "flip" : "";
