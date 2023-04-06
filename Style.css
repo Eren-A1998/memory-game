@@ -1,10 +1,9 @@
 body {
     background: url(./assets/brain.jpg);
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-size:cover;
     background-position: center;
     color: white;
-    height: 100vh;
 }
 
 #content {
